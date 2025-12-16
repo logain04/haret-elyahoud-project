@@ -9,9 +9,11 @@
     :root{
       --stone:#c9b89a;
       --accent:#7a6b4a;
-      --dark:#b89e73;
+      --dark:#2b2a28;
       --muted:#7e7a72;
       --glass: rgba(255,255,255,0.85);
+      /* إضافة لون جديد لزر الشراء */
+      --buy-btn-color: #558B2F; /* لون أخضر داكن للشراء */
     }
     *{box-sizing:border-box}
     body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Cairo', sans-serif;margin:0;background:#f6f2ed;color:var(--dark);line-height:1.45}
@@ -47,6 +49,35 @@
     .cta{display:flex;gap:8px}
     .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
     .btn.ghost{background:transparent;color:white;border:1px solid rgba(0,0,0,0.28)}
+
+    /* تنسيقات إضافية لزر الشراء */
+    .buy-btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .buy-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: #FFFFFF;
+      color: var(--dark);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .buy-btn:hover {
+      background: #f1efe9;
+    }
+    .price {
+      color: var(--buy-btn-color);
+      font-weight: 700;
+      margin-left: 10px;
+    }
 
     main{padding:28px 20px}
     section{margin:22px 0}
@@ -146,7 +177,7 @@
             <button class="btn" style="width:100%" onclick="openModal('book')">Book Workshop</button>
           </div>
 
-          </aside>
+        </aside>
       </div>
 
     </div>
@@ -214,10 +245,34 @@
     <section id="shop">
       <h2>Souvenirs & Economic Activation</h2>
       <div class="grid-3">
-        <div class="card"><strong>On-site Products</strong><p class="muted">Mini mashrabiyas, patterned fabrics, handmade candles.</p></div>
-        <div class="card"><strong>Cultural Events</strong><p class="muted">Heritage nights, art & craft festivals, storytelling tours.</p></div>
-        <div class="card"><strong>Branding</strong><p class="muted">Logo, slogan, visual identity for partnership & promotion.</p></div>
-      </div>
+        
+        <div class="card">
+          <strong>On-site Products</strong>
+          <p class="muted">Souvenirs and handcrafted items available for purchase.</p>
+          
+          <div class="buy-btn-container">
+            <button class="buy-btn">
+              Mini Mashrabiyas
+              <span class="price">500 EGP</span>
+            </button>
+            <button class="buy-btn">
+              Patterned Fabrics
+              <span class="price">1000 EGP</span>
+            </button>
+            <button class="buy-btn">
+              Handmade Candles
+              <span class="price">350 EGP</span>
+            </button>
+          </div>
+          
+        </div>
+        
+        <div class="card">
+            <strong>Cultural Events</strong>
+            <p class="muted">Heritage nights, art & craft festivals, storytelling tours.</p>
+        </div>
+        
+        </div>
     </section>
 
     <section id="archive" class="card">
