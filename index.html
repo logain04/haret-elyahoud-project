@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>حارة اليهود — Reviving Memory Through Immersive Heritage</title>
+  <title>حارة اليهود — Reviving Memory</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -11,51 +11,31 @@
       --accent:#7a6b4a;
       --dark:#2b2a28;
       --muted:#7e7a72;
-      --glass: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.9);
     }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Cairo', sans-serif;margin:0;background:#f6f2ed;color:var(--dark);line-height:1.45}
+    body{font-family:Inter, sans-serif; margin:0; background:#f6f2ed; color:var(--dark); line-height:1.45}
     
     header.hero{
       background: linear-gradient(180deg, var(--dark), var(--accent));
-      padding:48px 20px 64px;
+      padding:40px 20px;
       color: white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
     }
     
-    .container{max-width:1100px;margin:0 auto}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
-    .brand{display:flex;gap:12px;align-items:center}
+    .container{max-width:1100px; margin:0 auto}
+    .topbar{display:flex; align-items:center; justify-content:space-between; margin-bottom: 30px}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo-img {width: 50px; height: 50px; border-radius: 8px; object-fit: cover;}
+    .title{font-family:Cairo, sans-serif; font-size:24px; margin:0}
+
+    .card{background:var(--glass); padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); margin-bottom:20px}
     
-    .logo-img {
-      width: 56px;
-      height: 56px;
-      border-radius: 8px;
-      background: var(--glass);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    h1.title{font-family:Cairo, sans-serif;margin:8px 0 4px;font-size:30px}
-    p.lead{margin:0 0 18px;opacity:0.95}
-
-    .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
-    .card{background:var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.06); height: 100%;}
-    .cta{display:flex;gap:8px}
-    .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
-    .btn.ghost{background:transparent;color:white;border:1px solid rgba(0,0,0,0.28)}
-
-    /* تنسيق قسم المنتجات ليكون بالعرض الكامل */
-    .products-full-width {
-      grid-column: 1 / -1; /* يأخذ العرض بالكامل */
-    }
-
-    .buy-btn-container {
+    /* تنسيق قسم المنتجات بالعرض الكامل */
+    .shop-section { width: 100%; }
+    .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* توزيع المنتجات بالعرض */
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr); /* تظهر بجانب بعضها */
+      gap: 15px;
       margin-top: 15px;
     }
 
@@ -65,164 +45,120 @@
       align-items: center;
       padding: 12px;
       border-radius: 8px;
-      border: 1px solid rgba(0,0,0,0.05);
-      background: #FFFFFF;
-      color: var(--dark);
-      font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: #fff;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: 0.3s;
     }
-    .buy-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+    .buy-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     
     .price {
-      background-color: #f1efe9; 
+      background: #f1efe9;
       color: var(--accent);
-      padding: 4px 12px;
-      border-radius: 6px;
+      padding: 4px 8px;
+      border-radius: 5px;
       font-weight: 700;
-      margin-left: 10px;
+      font-size: 0.9em;
     }
 
-    .prod-thumb {
-      width: 45px;
-      height: 45px;
-      border-radius: 4px;
-      object-fit: cover;
-      margin-right: 12px;
+    .prod-thumb { width: 40px; height: 40px; border-radius: 4px; margin-right: 10px; object-fit: cover; }
+
+    .btn { padding:10px 20px; border-radius:8px; border:0; background:var(--accent); color:white; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;}
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+
+    @media (max-width: 850px) {
+      .products-grid, .grid-3 { grid-template-columns: 1fr; }
     }
-
-    main{padding:28px 20px}
-    section{margin:32px 0}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
-    h2{font-family:Cairo, sans-serif;margin:8px 0 12px}
-    .muted{color:var(--muted)}
-
-    footer{padding:40px 20px;background:#f1efe9;color:var(--muted);margin-top:40px}
-
-    @media (max-width:900px){
-      .hero-grid, .grid-3, .grid-2 {grid-template-columns:1fr}
-      .buy-btn-container {grid-template-columns: 1fr;}
-    }
+    
+    footer { padding: 40px 20px; background: #eeebe5; text-align: center; color: var(--muted); margin-top: 40px; }
   </style>
 </head>
 <body>
+
   <header class="hero">
     <div class="container">
       <div class="topbar">
         <div class="brand">
           <img src="./images/logo.jpeg" alt="Logo" class="logo-img">
           <div>
-            <div style="font-size:12px;opacity:0.9">THE JEWISH QUARTER</div>
-            <div class="title">حارة اليهود</div>
+            <div style="font-size:10px; letter-spacing:1px">THE JEWISH QUARTER</div>
+            <h1 class="title">حارة اليهود</h1>
           </div>
         </div>
-        <nav class="cta">
-          <button class="btn">Download AR App</button>
-          <button class="btn ghost">Book Visit</button>
-        </nav>
-      </div>
-
-      <div class="hero-grid" style="margin-top:18px">
         <div>
-          <div class="card">
-            <h2 style="color: var(--accent);">Reviving Memory Through Immersive Heritage</h2>
-            <p class="lead" style="color: var(--dark); opacity: 1;">A fully interactive heritage experience where architecture, stories, craftsmanship, soundscapes, and digital layers reconnect visitors to the historic life of Cairo’s Jewish Quarter.</p>
-
-            <div class="grid-2" style="margin-top:12px">
-              <div class="card" style="padding:12px; background: rgba(255,255,255,0.5);">
-                <strong style="color: var(--dark);">AR + VR Experiences</strong>
-                <p class="muted" style="margin:8px 0 0">AR Time-layered reconstructions · AR characters · Kids treasure hunt · VR festival nights</p>
-              </div>
-              <div class="card" style="padding:12px; background: rgba(255,255,255,0.5);">
-                <strong style="color: var(--dark);">On-site Activities</strong>
-                <p class="muted" style="margin:8px 0 0">Workshops · Projection mapping · Soundscapes · Micro-museums</p>
-              </div>
-            </div>
-          </div>
+          <button class="btn">Download AR App</button>
         </div>
-
-        <aside>
-          <div class="card">
-            <h3 style="margin:0 0 8px">Quick Links</h3>
-            <a href="#virtual" class="muted" style="display:block;margin:8px 0; text-decoration:none;"> Virtual 360° tour</a>
-            <a href="#activities" class="muted" style="display:block;margin:8px 0; text-decoration:none;"> Photo archive</a>
-            <a href="#shop" class="muted" style="display:block;margin:8px 0; text-decoration:none;"> On-site Souvenirs</a>
-            <div style="height:14px"></div>
-            <button class="btn" style="width:100%">Book Workshop</button>
-          </div>
-        </aside>
+      </div>
+      
+      <div class="card" style="color:var(--dark)">
+        <h2 style="margin-top:0; color:var(--accent)">Reviving Memory Through Immersive Heritage</h2>
+        <p>A fully interactive heritage experience where architecture, stories, and craftsmanship reconnect visitors to the historic life of Cairo’s Jewish Quarter.</p>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section id="shop">
-      <h2>Souvenirs & Economic Activation</h2>
-      <div class="card products-full-width">
-        <strong>On-site Products</strong>
-        <p class="muted">Handcrafted items available for purchase directly from the local artisans.</p>
+  <main class="container" style="padding: 20px">
+    
+    <section id="shop" class="shop-section">
+      <h2 style="font-family:Cairo">Souvenirs & Economic Activation</h2>
+      <div class="card">
+        <strong style="font-size: 1.1em">On-site Products</strong>
+        <p class="muted">Handcrafted items available for purchase.</p>
         
-        <div class="buy-btn-container">
-          <button class="buy-btn">
-            <div style="display:flex; align-items:center;">
-              <img src="./images/Mini Mashrabiyas .jpeg" alt="Mini Mashrabiyas" class="prod-thumb">
+        <div class="products-grid">
+          <div class="buy-btn">
+            <div style="display:flex; align-items:center">
+              <img src="./images/Mini Mashrabiyas .jpeg" class="prod-thumb">
               <span>Mini Mashrabiyas</span>
             </div>
             <span class="price">500 EGP</span>
-          </button>
+          </div>
 
-          <button class="buy-btn">
-            <div style="display:flex; align-items:center;">
-              <img src="./images/Patterned Fabrics.jpeg" alt="Patterned Fabrics" class="prod-thumb">
+          <div class="buy-btn">
+            <div style="display:flex; align-items:center">
+              <img src="./images/Patterned Fabrics.jpeg" class="prod-thumb">
               <span>Patterned Fabrics</span>
             </div>
             <span class="price">1000 EGP</span>
-          </button>
+          </div>
 
-          <button class="buy-btn">
-            <div style="display:flex; align-items:center;">
-              <img src="./images/Handmade Candles.jpeg" alt="Handmade Candles" class="prod-thumb">
+          <div class="buy-btn">
+            <div style="display:flex; align-items:center">
+              <img src="./images/Handmade Candles.jpeg" class="prod-thumb">
               <span>Handmade Candles</span>
             </div>
             <span class="price">350 EGP</span>
-          </button>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="virtual">
-      <h2>Website & Digital Archive</h2>
+      <h2 style="font-family:Cairo">Digital Archive</h2>
       <div class="grid-3">
         <div class="card">
-          <strong>Virtual tour (360°)</strong>
-          <img src="./images/virtual_tour.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:12px;">
+          <strong>Virtual Tour (360°)</strong>
+          <img src="./images/virtual_tour.jpeg" style="width:100%; border-radius:8px; height:150px; object-fit:cover; margin-top:10px">
         </div>
         <div class="card">
           <strong>AR App Portal</strong>
-          <img src="./images/ar_portal.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:12px;">
+          <img src="./images/ar_portal.jpeg" style="width:100%; border-radius:8px; height:150px; object-fit:cover; margin-top:10px">
         </div>
         <div class="card">
-          <strong>Photo & Oral Archive</strong>
-          <img src="./images/ARCHIVE.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:12px;">
+          <strong>Photo Archive</strong>
+          <img src="./images/ARCHIVE.jpeg" style="width:100%; border-radius:8px; height:150px; object-fit:cover; margin-top:10px">
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
-        <div>
-          <strong>حارة اليهود — Haret El Yahoud</strong>
-          <div class="muted" style="margin-top:6px">© 2025 Reviving Memory Through Immersive Heritage</div>
-        </div>
-      </div>
+      <strong>حارة اليهود — Haret El Yahoud</strong>
+      <p>© 2025 Reviving Memory Through Immersive Heritage</p>
     </div>
   </footer>
+
 </body>
 </html>
