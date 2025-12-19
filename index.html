@@ -11,108 +11,172 @@
       --accent:#7a6b4a;
       --dark:#2b2a28;
       --muted:#7e7a72;
-      --glass: rgba(255,255,255,0.92);
+      --glass: rgba(255,255,255,0.85);
+      --buy-btn-color: #558B2F; 
     }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, sans-serif; margin:0; background:#f6f2ed; color:var(--dark); line-height:1.5}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Cairo', sans-serif;margin:0;background:#f6f2ed;color:var(--dark);line-height:1.45}
     
     header.hero{
       background: linear-gradient(180deg, var(--dark), var(--accent));
-      padding:40px 20px 60px;
+      padding:48px 20px 64px;
       color: white;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
     }
     
-    .container{max-width:1100px; margin:0 auto}
-    .topbar{display:flex; align-items:center; justify-content:space-between; padding-bottom:30px}
-    .brand{display:flex; gap:12px; align-items:center}
-    .logo-img { width: 60px; height: 60px; border-radius: 8px; background: white; object-fit: contain; padding: 5px; }
+    .container{max-width:1100px;margin:0 auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+    .brand{display:flex;gap:12px;align-items:center}
     
-    .hero-grid{display:grid; grid-template-columns:1fr 320px; gap:24px; align-items:start}
-    .card{background:var(--glass); padding:20px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.05); height:100%}
-    
-    .btn{padding:12px 20px; border-radius:8px; border:0; background:var(--accent); color:white; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block}
-    .btn.ghost{background:transparent; color:white; border:1px solid rgba(255,255,255,0.4)}
-
-    main{padding:40px 20px}
-    section{margin-bottom:60px}
-    
-    .wide-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 20px;
-    }
-    
-    .big-img {
-      width: 100%;
-      height: 240px;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-
-    .price-tag {
-      display: inline-block;
-      background: #eeeae0;
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      background: var(--glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--accent);
-      padding: 6px 15px;
-      border-radius: 6px;
       font-weight: 700;
+    }
+    h1.title{font-family:Cairo, sans-serif;margin:8px 0 4px;font-size:30px}
+    p.lead{margin:0 0 18px;opacity:0.95}
+
+    .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+    .card{background:var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.06)}
+    .cta{display:flex;gap:8px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;color:white;border:1px solid rgba(0,0,0,0.28)}
+
+    /* تنسيقات زر الشراء المحدثة باللون البيج */
+    .buy-btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       margin-top: 10px;
     }
+    .buy-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.05);
+      background: #FFFFFF;
+      color: var(--dark);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .buy-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    /* تعديل لون السعر للبيج الخفيف كما طلبتي */
+    .price {
+      background-color: #f1efe9; 
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
 
-    h2{font-family:Cairo, sans-serif; color: var(--accent); font-size: 28px; margin-bottom: 25px;}
-    h3{font-family:Cairo, sans-serif; margin-top:0}
-    .muted{color:var(--muted); font-size: 0.95rem;}
+    /* تنسيق الصور داخل أزرار الشراء */
+    .prod-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
 
-    footer{padding:50px 20px; background:#f1efe9; text-align: center; border-top:1px solid #e5e0d5}
+    main{padding:28px 20px}
+    section{margin:22px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
-    @media (max-width:900px){ 
-        .hero-grid, .wide-row {grid-template-columns:1fr} 
+    h2{font-family:Cairo, sans-serif;margin:8px 0 12px}
+    .muted{color:var(--muted)}
+
+    footer{padding:28px 20px;background:#f1efe9;color:var(--muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    @media (max-width:900px){
+      .hero-grid, .grid-3, .grid-2 {grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-
   <header class="hero">
     <div class="container">
       <div class="topbar">
         <div class="brand">
-          <img src="./images/logo.jpeg" class="logo-img" alt="Logo">
+          <img src="./images/logo.jpeg" alt="Logo" class="logo-img">
           <div>
-            <div style="font-size:12px; letter-spacing:1px; opacity:0.8">THE JEWISH QUARTER</div>
-            <div style="font-family:Cairo; font-size:28px; font-weight:700">حارة اليهود</div>
+            <div style="font-size:12px;opacity:0.9">THE JEWISH QUARTER</div>
+            <div class="title">حارة اليهود</div>
           </div>
         </div>
-        <nav style="display:flex; gap:12px;">
-          <a href="#" class="btn">Download AR App</a>
-          <a href="#visit" class="btn ghost">Book Visit</a>
+        <nav class="cta">
+          <button class="btn" onclick="openModal('ar')">Download AR App</button>
+          <button class="btn ghost" onclick="location.href='#visit'">Book Visit</button>
         </nav>
       </div>
 
-      <div class="hero-grid">
-        <div class="card" style="color:var(--dark)">
-          <h2 style="margin-top:0">Reviving Memory Through Immersive Heritage</h2>
-          <p>A fully interactive heritage experience where architecture, stories, and digital layers reconnect visitors to Cairo’s Jewish Quarter.</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:20px">
-            <div style="background:rgba(201, 184, 154, 0.15); padding:15px; border-radius:10px">
-                <strong>AR + VR</strong>
-                <p class="muted" style="margin:5px 0 0">Time-layered reconstructions & VR festivals.</p>
-            </div>
-            <div style="background:rgba(201, 184, 154, 0.15); padding:15px; border-radius:10px">
-                <strong>Activities</strong>
-                <p class="muted" style="margin:5px 0 0">Workshops & Soundscapes.</p>
+      <div class="hero-grid" style="margin-top:18px">
+        <div>
+          <div class="card">
+            <h2 style="color: var(--accent);">Reviving Memory Through Immersive Heritage</h2>
+            <p class="lead" style="color: var(--dark); opacity: 1;">A fully interactive heritage experience where architecture, stories, craftsmanship, soundscapes, and digital layers reconnect visitors to the historic life of Cairo’s Jewish Quarter.</p>
+
+            <div class="grid-2" style="margin-top:12px">
+              <div class="card" style="padding:12px">
+                <strong style="color: var(--dark);">AR + VR Experiences</strong>
+                <p class="muted" style="margin:8px 0 0">AR Time-layered reconstructions · AR characters · Kids treasure hunt · VR festival nights</p>
+              </div>
+              <div class="card" style="padding:12px">
+                <strong style="color: var(--dark);">On-site Activities</strong>
+                <p class="muted" style="margin:8px 0 0">Workshops · Projection mapping · Soundscapes · Micro-museums</p>
+              </div>
             </div>
           </div>
+
+          <section class="card" style="margin-top:16px">
+            <h2 style="color: var(--accent);">Immersive Tech</h2>
+            <div class="grid-2">
+              <div>
+                <h3 style="color: var(--dark); margin: 0 0 8px;">AR Pathway</h3>
+                <ul class="muted" style="padding-left: 20px; margin: 8px 0 0;">
+                  <li>Time-layered reconstructions</li>
+                  <li>AR characters: merchants, rabbis</li>
+                  <li>AR treasure hunt & kids passport</li>
+                </ul>
+              </div>
+              <div>
+                <h3 style="color: var(--dark); margin: 0 0 8px;">VR Experience Center</h3>
+                <ul class="muted" style="padding-left: 20px; margin: 8px 0 0;">
+                  <li>Walk in Old Cairo 1900s · Festival Night</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid-2" style="margin-top:16px; gap:12px;">
+              <img src="./images/AR.jpeg" alt="AR" style="width:100%; border-radius:8px; object-fit:cover; height:200px;">
+              <img src="./images/VR 1900.jpeg" alt="VR" style="width:100%; border-radius:8px; object-fit:cover; height:200px;">
+            </div>
+          </section>
         </div>
+
         <aside>
-          <div class="card" style="color:var(--dark)">
-            <h3>Quick Links</h3>
-            <ul style="list-style:none; padding:0; margin:0">
-                <li style="margin-bottom:12px"><a href="#shop" style="color:var(--accent); text-decoration:none">→ Shop Souvenirs</a></li>
-                <li style="margin-bottom:12px"><a href="#virtual" style="color:var(--accent); text-decoration:none">→ Virtual 360° Tour</a></li>
-                <li style="margin-bottom:12px"><a href="#activities" style="color:var(--accent); text-decoration:none">→ On-Site Activities</a></li>
-            </ul>
+          <div class="card">
+            <h3 style="margin:0 0 8px">Quick Links</h3>
+            <a href="#virtual" class="muted" style="display:block;margin:8px 0"> Virtual 360° tour</a>
+            <a href="#archive" class="muted" style="display:block;margin:8px 0"> Photo archive</a>
+            <a href="#events" class="muted" style="display:block;margin:8px 0"> Events & Bookings</a>
+            <a href="#shop" class="muted" style="display:block;margin:8px 0"> On-site Souvenirs</a>
+            <div style="height:14px"></div>
+            <button class="btn" style="width:100%">Book Workshop</button>
           </div>
         </aside>
       </div>
@@ -120,80 +184,99 @@
   </header>
 
   <main class="container">
-    
-    <section id="shop">
-      <h2>On-site Products</h2>
-      <div class="wide-row">
-        <div class="card" style="text-align:center;">
-          <img src="./images/Mini Mashrabiyas .jpeg" class="big-img" alt="Mashrabiya">
-          <div style="font-weight:700; font-size:18px">Mini Mashrabiyas</div>
-          <div class="price-tag">500 EGP</div>
-        </div>
-        <div class="card" style="text-align:center;">
-          <img src="./images/Patterned Fabrics.jpeg" class="big-img" alt="Fabrics">
-          <div style="font-weight:700; font-size:18px">Patterned Fabrics</div>
-          <div class="price-tag">1000 EGP</div>
-        </div>
-        <div class="card" style="text-align:center;">
-          <img src="./images/Handmade Candles.jpeg" class="big-img" alt="Candles">
-          <div style="font-weight:700; font-size:18px">Handmade Candles</div>
-          <div class="price-tag">350 EGP</div>
-        </div>
-      </div>
-    </section>
-
     <section id="virtual">
       <h2>Website & Digital Archive</h2>
-      <div class="wide-row">
+      <div class="grid-3">
         <div class="card">
-          <h3 style="font-size:18px">Virtual tour (360°)</h3>
-          <img src="./images/virtual_tour.jpeg" class="big-img">
-          <p class="muted">Explore the narrow alleys digitally.</p>
+          <strong>Virtual tour (360°)</strong>
+          <img src="./images/virtual_tour.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:8px;">
         </div>
         <div class="card">
-          <h3 style="font-size:18px">AR App Portal</h3>
-          <img src="./images/ar_portal.jpeg" class="big-img">
-          <p class="muted">Access digital layers on-site.</p>
+          <strong>AR App Portal</strong>
+          <img src="./images/ar_portal.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:8px;">
         </div>
         <div class="card">
-          <h3 style="font-size:18px">Photo & Oral Archive</h3>
-          <img src="./images/ARCHIVE.jpeg" class="big-img">
-          <p class="muted">A collection of memories.</p>
+          <strong>Photo & Oral Archive</strong>
+          <img src="./images/ARCHIVE.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:8px;">
         </div>
       </div>
     </section>
 
     <section id="activities">
       <h2>Interactive On-Site Activities</h2>
-      <div class="wide-row">
+      <div class="grid-3">
         <div class="card">
-          <h3 style="font-size:18px">Workshops</h3>
-          <img src="./images/WORKSHOPS.jpeg" class="big-img" style="height:180px">
-          <p class="muted">Hands-on experience.</p>
+          <strong>Workshops</strong>
+          <img src="./images/WORKSHOPS.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:8px;">
         </div>
         <div class="card">
-          <h3 style="font-size:18px">Night Projection</h3>
-          <img src="./images/NIGHT PROJECTION.jpeg" class="big-img" style="height:180px">
-          <p class="muted">Visual storytelling.</p>
+          <strong>Night Projection</strong>
+          <img src="./images/NIGHT PROJECTION.jpeg" style="width:100%; border-radius:8px; object-fit:cover; height:150px; margin-top:8px;">
         </div>
         <div class="card">
-          <h3 style="font-size:18px">Soundscape Alley</h3>
-          <p class="muted">Immersive sound history.</p>
-          <audio controls style="width:100%; margin-top:15px;">
+          <strong>Soundscape Alley</strong>
+          <p class="muted">Immersive history through soundscapes.</p>
+          <audio controls style="width:100%; margin-top:8px;">
             <source src="./images/script.mpeg" type="audio/mpeg">
           </audio>
         </div>
       </div>
     </section>
 
+    <section id="shop">
+      <h2>Souvenirs & Economic Activation</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>On-site Products</strong>
+          <p class="muted">Handcrafted items available for purchase.</p>
+          
+          <div class="buy-btn-container">
+            <button class="buy-btn">
+              <div style="display:flex; align-items:center;">
+                <img src="./images/Mini Mashrabiyas .jpeg" class="prod-thumb">
+                <span>Mini Mashrabiyas</span>
+              </div>
+              <span class="price">500 EGP</span>
+            </button>
+
+            <button class="buy-btn">
+              <div style="display:flex; align-items:center;">
+                <img src="./images/Patterned Fabrics.jpeg" class="prod-thumb">
+                <span>Patterned Fabrics</span>
+              </div>
+              <span class="price">1000 EGP</span>
+            </button>
+
+            <button class="buy-btn">
+              <div style="display:flex; align-items:center;">
+                <img src="./images/Handmade Candles" class="prod-thumb">
+                <span>Handmade Candles</span>
+              </div>
+              <span class="price">350 EGP</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="card">
+            <strong>Cultural Events</strong>
+            <p class="muted">Heritage nights, art & craft festivals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive" class="card">
+      <h2>Digital Encyclopedia</h2>
+      <p class="muted">Searchable entries on culture, food, and history.</p>
+    </section>
   </main>
 
   <footer>
-    <div class="container">
-      <div style="font-family:Cairo; font-size:22px; font-weight:700; color:var(--accent)">حارة اليهود</div>
-      <p class="muted">© 2025 Reviving Memory Through Immersive Heritage</p>
+    <div class="container footer-grid">
+      <div>
+        <strong>حارة اليهود — Haret El Yahoud</strong>
+        <div class="muted" style="margin-top:6px">© 2025 Reviving Memory Through Immersive Heritage</div>
+      </div>
     </div>
   </footer>
-
 </body>
 </html>
