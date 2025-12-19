@@ -11,7 +11,7 @@
       --accent:#7a6b4a;
       --dark:#2b2a28;
       --muted:#7e7a72;
-      --glass: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.95);
       --buy-btn-color: #558B2F; 
     }
     *{box-sizing:border-box}
@@ -39,7 +39,7 @@
     .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
     .btn.ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,0.4)}
 
-    /* --- تنسيق قسم المنتجات الجديد --- */
+    /* --- تنسيق قائمة المنتجات بالصور وزر السعر البيج --- */
     .product-list {
       display: flex;
       flex-direction: column;
@@ -49,25 +49,23 @@
     .product-item {
       display: flex;
       align-items: center;
-      gap: 15px;
-      padding: 10px;
-      border-radius: 10px;
+      gap: 20px;
+      padding: 12px;
+      border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.08);
       background: #FFFFFF;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
+      transition: all 0.2s ease;
     }
     .product-item:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      background: #fdfcf9;
     }
     .product-img {
-      width: 70px;
-      height: 70px;
+      width: 80px;
+      height: 80px;
       border-radius: 8px;
       object-fit: cover;
-      background: #f0f0f0; /* مكان الصورة قبل التحميل */
+      background: #f0f0f0;
     }
     .product-info {
       flex-grow: 1;
@@ -75,17 +73,27 @@
       justify-content: space-between;
       align-items: center;
     }
-    .product-name { font-weight: 600; color: var(--dark); }
-    .price { color: var(--buy-btn-color); font-weight: 700; }
+    .product-name { font-weight: 700; color: var(--dark); font-size: 1.1rem; }
+    
+    /* تنسيق زر السعر باللون البيج الخفيف */
+    .price { 
+      background-color: #f1efe9; 
+      color: var(--accent);      
+      padding: 6px 16px;         
+      border-radius: 8px;        
+      font-weight: 700; 
+      font-size: 1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
     /* ------------------------------ */
 
     main{padding:28px 20px}
-    section{margin:32px 0}
+    section{margin:40px 0}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .muted{color:var(--muted); font-size: 0.95rem;}
 
-    footer{padding:28px 20px;background:#f1efe9;color:var(--muted)}
+    footer{padding:40px 20px; background:#f1efe9; color:var(--muted); text-align: center;}
 
     @media (max-width:900px){
       .hero-grid, .grid-3, .grid-2 {grid-template-columns:1fr}
@@ -127,8 +135,7 @@
         <aside>
           <div class="card">
             <h3 style="margin-top:0">Quick Links</h3>
-            <a href="#virtual" style="display:block; color:var(--accent); margin:8px 0; text-decoration:none;">• Virtual 360° Tour</a>
-            <a href="#archive" style="display:block; color:var(--accent); margin:8px 0; text-decoration:none;">• Photo Archive</a>
+            <a href="#activities" style="display:block; color:var(--accent); margin:8px 0; text-decoration:none;">• Activities</a>
             <a href="#shop" style="display:block; color:var(--accent); margin:8px 0; text-decoration:none;">• Shop Souvenirs</a>
             <button class="btn" style="width:100%; margin-top:10px;">Book Workshop</button>
           </div>
@@ -138,38 +145,20 @@
   </header>
 
   <main class="container">
-    <section id="virtual">
-      <h2>Website & Digital Archive</h2>
-      <div class="grid-3">
-        <div class="card">
-          <strong>Virtual Tour</strong>
-          <img src="./images/virtual_tour.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius:6px; margin-top:10px;">
-        </div>
-        <div class="card">
-          <strong>AR Portal</strong>
-          <img src="./images/ar_portal.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius:6px; margin-top:10px;">
-        </div>
-        <div class="card">
-          <strong>Oral Archive</strong>
-          <img src="./images/ARCHIVE.jpeg" style="width:100%; height:120px; object-fit:cover; border-radius:6px; margin-top:10px;">
-        </div>
-      </div>
-    </section>
-
     <section id="activities">
       <h2>Interactive On-Site Activities</h2>
       <div class="grid-3">
         <div class="card">
           <strong>Workshops</strong>
-          <img src="./images/WORKSHOPS.jpeg" style="width:100%; height:120px; border-radius:6px; margin-top:10px; object-fit:cover;">
+          <img src="./images/WORKSHOPS.jpeg" style="width:100%; height:150px; border-radius:8px; margin-top:10px; object-fit:cover;">
         </div>
         <div class="card">
           <strong>Night Projection</strong>
-          <img src="./images/NIGHT PROJECTION.jpeg" style="width:100%; height:120px; border-radius:6px; margin-top:10px; object-fit:cover;">
+          <img src="./images/NIGHT PROJECTION.jpeg" style="width:100%; height:150px; border-radius:8px; margin-top:10px; object-fit:cover;">
         </div>
         <div class="card">
           <strong>Soundscape Alley</strong>
-          <p class="muted">Ambient history through sound.</p>
+          <p class="muted" style="margin-top:15px;">Immersive history through soundscapes.</p>
         </div>
       </div>
     </section>
@@ -178,44 +167,42 @@
       <h2>Souvenirs & Economic Activation</h2>
       <div class="card">
         <strong>On-site Products</strong>
-        <p class="muted">Handcrafted items inspired by heritage.</p>
+        <p class="muted">Handcrafted items available for purchase at our marketplace.</p>
         
-       <div class="product-list">
-  <div class="product-item">
-    <img src="./images/Mini Mashrabiyas .jpeg" alt="Mashrabiya" class="product-img">
-    <div class="product-info">
-      <span class="product-name">Mini Mashrabiyas</span>
-      <span class="price">500 EGP</span>
-    </div>
-  </div>
+        <div class="product-list">
+          <div class="product-item">
+            <img src="./images/Mini Mashrabiyas .jpeg" alt="Mashrabiya" class="product-img">
+            <div class="product-info">
+              <span class="product-name">Mini Mashrabiyas</span>
+              <span class="price">500 EGP</span>
+            </div>
+          </div>
 
-  <div class="product-item">
-    <img src="./images/Patterned Fabrics.jpeg" alt="Fabrics" class="product-img">
-    <div class="product-info">
-      <span class="product-name">Patterned Fabrics</span>
-      <span class="price">1000 EGP</span>
-    </div>
-  </div>
+          <div class="product-item">
+            <img src="./images/Patterned Fabrics.jpeg" alt="Fabrics" class="product-img">
+            <div class="product-info">
+              <span class="product-name">Patterned Fabrics</span>
+              <span class="price">1000 EGP</span>
+            </div>
+          </div>
 
-  <div class="product-item">
-    <img src="./images/Handmade Candles" alt="Candles" class="product-img">
-    <div class="product-info">
-      <span class="product-name">Handmade Candles</span>
-      <span class="price">350 EGP</span>
-    </div>
-  </div>
-</div></div>
+          <div class="product-item">
+            <img src="./images/Handmade Candles" alt="Candles" class="product-img">
+            <div class="product-info">
+              <span class="product-name">Handmade Candles</span>
+              <span class="price">350 EGP</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container" style="display:flex; justify-content:space-between;">
-      <span>حارة اليهود — Haret El Yahoud</span>
-      <span class="muted">info@haretelyahoud.example</span>
+    <div class="container">
+      <strong>حارة اليهود — Haret El Yahoud</strong>
+      <p class="muted" style="margin-top:10px;">© 2025 Reviving Memory Through Immersive Heritage</p>
     </div>
   </footer>
 </body>
 </html>
-
-
