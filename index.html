@@ -11,104 +11,113 @@
       --accent:#7a6b4a;
       --dark:#2b2a28;
       --muted:#7e7a72;
-      --glass: rgba(255,255,255,0.85);
+      --glass: rgba(255,255,255,0.92);
     }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Cairo', sans-serif;margin:0;background:#f6f2ed;color:var(--dark);line-height:1.45}
+    body{font-family:Inter, system-ui, -apple-system, sans-serif; margin:0; background:#f6f2ed; color:var(--dark); line-height:1.5}
     
     header.hero{
       background: linear-gradient(180deg, var(--dark), var(--accent));
-      padding:48px 20px 64px;
+      padding:40px 20px 60px;
       color: white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
     }
     
-    .container{max-width:1100px;margin:0 auto}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
-    .brand{display:flex;gap:12px;align-items:center}
+    .container{max-width:1100px; margin:0 auto}
+    .topbar{display:flex; align-items:center; justify-content:space-between; padding-bottom:30px}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo-img { width: 60px; height: 60px; border-radius: 8px; background: white; object-fit: contain; padding: 5px; }
     
-    .logo-img {
-      width: 56px; height: 56px; border-radius: 8px; background: var(--glass);
-      display: flex; align-items: center; justify-content: center;
-    }
-    h1.title{font-family:Cairo, sans-serif;margin:8px 0 4px;font-size:30px}
+    .hero-grid{display:grid; grid-template-columns:1fr 320px; gap:24px; align-items:start}
+    .card{background:var(--glass); padding:20px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.05); height:100%}
     
-    .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
-    .card{background:var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.06)}
-    
-    .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
-    .btn.ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,0.4)}
+    .btn{padding:12px 20px; border-radius:8px; border:0; background:var(--accent); color:white; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block}
+    .btn.ghost{background:transparent; color:white; border:1px solid rgba(255,255,255,0.4)}
 
-    main{padding:28px 20px}
-    section{margin:40px 0}
+    main{padding:40px 20px}
+    section{margin-bottom:60px}
     
-    /* تنسيق الجريد ليصبح بالعرض وصور أكبر */
-    .wide-grid {
+    /* تنسيق الصفوف العريضة */
+    .wide-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      width: 100%;
+      margin-top: 20px;
     }
     
-    .big-card-img {
+    .big-img {
       width: 100%;
-      height: 250px; /* تكبير الارتفاع */
-      border-radius: 12px;
+      height: 240px;
+      border-radius: 10px;
       object-fit: cover;
-      margin-top: 12px;
+      margin-bottom: 15px;
     }
 
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .price-tag {
+      display: inline-block;
+      background: #eeeae0;
+      color: var(--accent);
+      padding: 6px 15px;
+      border-radius: 6px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
 
-    h2{font-family:Cairo, sans-serif;margin:0 0 20px; color: var(--accent);}
+    h2{font-family:Cairo, sans-serif; color: var(--accent); font-size: 28px; margin-bottom: 25px;}
+    h3{font-family:Cairo, sans-serif; margin-top:0}
     .muted{color:var(--muted); font-size: 0.95rem;}
 
-    footer{padding:40px 20px; background:#f1efe9; text-align: center;}
+    .visitor-list { padding-left: 20px; color: var(--muted); }
+    .visitor-list li { margin-bottom: 10px; }
 
-    @media (max-width:900px){
-      .hero-grid, .wide-grid, .grid-3 {grid-template-columns:1fr}
+    footer{padding:50px 20px; background:#f1efe9; text-align: center; border-top:1px solid #e5e0d5}
+
+    @media (max-width:900px){ 
+        .hero-grid, .wide-row {grid-template-columns:1fr} 
     }
   </style>
 </head>
 <body>
+
   <header class="hero">
     <div class="container">
       <div class="topbar">
         <div class="brand">
-          <img src="./images/logo.jpeg" alt="Logo" class="logo-img">
+          <img src="./images/logo.jpeg" class="logo-img" alt="Logo">
           <div>
-            <div style="font-size:12px;opacity:0.9">THE JEWISH QUARTER</div>
-            <div class="title">حارة اليهود</div>
+            <div style="font-size:12px; letter-spacing:1px; opacity:0.8">THE JEWISH QUARTER</div>
+            <div style="font-family:Cairo; font-size:28px; font-weight:700">حارة اليهود</div>
           </div>
         </div>
-        <nav style="display:flex; gap:10px;">
-          <button class="btn">Download AR App</button>
-          <button class="btn ghost">Book Visit</button>
+        <nav style="display:flex; gap:12px;">
+          <a href="#" class="btn">Download AR App</a>
+          <a href="#visit" class="btn ghost">Book Visit</a>
         </nav>
       </div>
 
-      <div class="hero-grid" style="margin-top:24px">
-        <div class="card">
-          <h2>Reviving Memory Through Immersive Heritage</h2>
-          <p>A fully interactive heritage experience connecting visitors to Cairo’s Jewish Quarter.</p>
-          <div class="grid-2">
-            <div class="card" style="background:rgba(255,255,255,0.5)">
-              <strong>AR + VR</strong>
-              <p class="muted">Time-layered reconstructions & VR festivals.</p>
+      <div class="hero-grid">
+        <div class="card" style="color:var(--dark)">
+          <h2 style="margin-top:0">Reviving Memory Through Immersive Heritage</h2>
+          <p>A fully interactive heritage experience where architecture, stories, and digital layers reconnect visitors to Cairo’s Jewish Quarter.</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:20px">
+            <div style="background:rgba(201, 184, 154, 0.15); padding:15px; border-radius:10px">
+                <strong>AR + VR</strong>
+                <p class="muted" style="margin:5px 0 0">Time-layered reconstructions & VR festivals.</p>
             </div>
-            <div class="card" style="background:rgba(255,255,255,0.5)">
-              <strong>Activities</strong>
-              <p class="muted">Workshops & Soundscapes.</p>
+            <div style="background:rgba(201, 184, 154, 0.15); padding:15px; border-radius:10px">
+                <strong>Activities</strong>
+                <p class="muted" style="margin:5px 0 0">Workshops & Soundscapes.</p>
             </div>
           </div>
         </div>
         <aside>
-          <div class="card">
-            <h3 style="margin-top:0">Quick Links</h3>
-            <a href="#virtual" style="display:block; color:var(--accent); margin:8px 0; text-decoration:none;">• Virtual Tour</a>
-            <a href="#activities" style="display:block; color:var(--accent); margin:8px 0; text-decoration:none;">• Activities</a>
-            <button class="btn" style="width:100%; margin-top:10px;">Book Workshop</button>
+          <div class="card" style="color:var(--dark)">
+            <h3>Quick Links</h3>
+            <ul style="list-style:none; padding:0; margin:0">
+                <li style="margin-bottom:12px"><a href="#shop" style="color:var(--accent); text-decoration:none">→ Shop Souvenirs</a></li>
+                <li style="margin-bottom:12px"><a href="#virtual" style="color:var(--accent); text-decoration:none">→ Virtual 360° Tour</a></li>
+                <li style="margin-bottom:12px"><a href="#activities" style="color:var(--accent); text-decoration:none">→ On-Site Activities</a></li>
+            </ul>
+            <button class="btn" style="width:100%; margin-top:15px">Book a Workshop</button>
           </div>
         </aside>
       </div>
@@ -116,67 +125,94 @@
   </header>
 
   <main class="container">
+    
+    <section id="shop">
+      <h2>On-site Products</h2>
+      <div class="wide-row">
+        <div class="card" style="text-align:center;">
+          <img src="./images/Mini Mashrabiyas .jpeg" class="big-img" alt="Mashrabiya">
+          <div style="font-weight:700; font-size:18px">Mini Mashrabiyas</div>
+          <div class="price-tag">500 EGP</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <img src="./images/Patterned Fabrics.jpeg" class="big-img" alt="Fabrics">
+          <div style="font-weight:700; font-size:18px">Patterned Fabrics</div>
+          <div class="price-tag">1000 EGP</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <img src="./images/Handmade Candles.jpeg" class="big-img" alt="Candles">
+          <div style="font-weight:700; font-size:18px">Handmade Candles</div>
+          <div class="price-tag">350 EGP</div>
+        </div>
+      </div>
+    </section>
+
     <section id="virtual">
       <h2>Website & Digital Archive</h2>
-      <div class="wide-grid">
+      <div class="wide-row">
         <div class="card">
-          <strong>Virtual tour (360°)</strong>
-          <p class="muted">Immersive panoramas of alleys.</p>
-          <img src="./images/virtual_tour.jpeg" class="big-card-img">
+          <h3 style="font-size:18px">Virtual tour (360°)</h3>
+          <img src="./images/virtual_tour.jpeg" class="big-img">
+          <p class="muted">Explore the narrow alleys of the quarter digitally.</p>
         </div>
         <div class="card">
-          <strong>AR App Portal</strong>
-          <p class="muted">AR downloads and guides.</p>
-          <img src="./images/ar_portal.jpeg" class="big-card-img">
+          <h3 style="font-size:18px">AR App Portal</h3>
+          <img src="./images/ar_portal.jpeg" class="big-img">
+          <p class="muted">Access digital layers and hidden stories on-site.</p>
         </div>
         <div class="card">
-          <strong>Photo & Oral Archive</strong>
-          <p class="muted">Interviews and family photos.</p>
-          <img src="./images/ARCHIVE.jpeg" class="big-card-img">
+          <h3 style="font-size:18px">Photo & Oral Archive</h3>
+          <img src="./images/ARCHIVE.jpeg" class="big-img">
+          <p class="muted">A collection of memories and historical photos.</p>
         </div>
       </div>
     </section>
 
     <section id="activities">
       <h2>Interactive On-Site Activities</h2>
-      <div class="grid-3">
+      <div class="wide-row">
         <div class="card">
-          <strong>Workshops</strong>
-          <img src="./images/WORKSHOPS.jpeg" style="width:100%; height:180px; border-radius:8px; object-fit:cover; margin-top:10px;">
+          <h3 style="font-size:18px">Workshops</h3>
+          <img src="./images/WORKSHOPS.jpeg" class="big-img" style="height:180px">
+          <p class="muted">Hands-on experience with local artisans.</p>
         </div>
         <div class="card">
-          <strong>Night Projection</strong>
-          <img src="./images/NIGHT PROJECTION.jpeg" style="width:100%; height:180px; border-radius:8px; object-fit:cover; margin-top:10px;">
+          <h3 style="font-size:18px">Night Projection</h3>
+          <img src="./images/NIGHT PROJECTION.jpeg" class="big-img" style="height:180px">
+          <p class="muted">Visual storytelling on historic walls.</p>
         </div>
         <div class="card">
-          <strong>Soundscape Alley</strong>
-          <p class="muted">Immersive history through soundscapes.</p>
-          <audio controls style="width:100%; margin-top:10px;">
+          <h3 style="font-size:18px">Soundscape Alley</h3>
+          <p class="muted">Listen to the echoes of the past.</p>
+          <audio controls style="width:100%; margin-top:15px;">
             <source src="./images/script.mpeg" type="audio/mpeg">
           </audio>
         </div>
       </div>
     </section>
 
-    <section id="visit" class="card">
-      <h2>Visitor Journey</h2>
-      <ol class="muted">
-        <li>Entrance Gate — welcome arch</li>
-        <li>Orientation Room — model + AR</li>
-        <li>Alley Exploration — AR stops</li>
-        <li>VR Immersion House</li>
-        <li>Craft Courtyard — hands-on</li>
-        <li>Night Show — projection</li>
-        <li>Marketplace Exit — souvenirs</li>
-      </ol>
+    <section id="visit">
+        <div class="card">
+            <h2>Visitor Journey</h2>
+            <ol class="visitor-list">
+                <li><strong>Entrance Gate:</strong> Welcome arch and introduction.</li>
+                <li><strong>Orientation Room:</strong> Physical model with AR overview.</li>
+                <li><strong>Alley Exploration:</strong> Guided AR stops and storytelling.</li>
+                <li><strong>VR Immersion:</strong> Step back into the 1900s.</li>
+                <li><strong>Craft Courtyard:</strong> Interactive workshops.</li>
+                <li><strong>Marketplace Exit:</strong> Shop handcrafted souvenirs.</li>
+            </ol>
+        </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container">
-      <strong>حارة اليهود — Haret El Yahoud</strong>
-      <p class="muted">© 2025 Reviving Memory Through Immersive Heritage</p>
+      <div style="font-family:Cairo; font-size:22px; font-weight:700; color:var(--accent)">حارة اليهود</div>
+      <p class="muted">© 2025 Reviving Memory Through Immersive Heritage. All rights reserved.</p>
     </div>
   </footer>
+
 </body>
 </html>
