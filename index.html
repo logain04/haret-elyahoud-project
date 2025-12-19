@@ -12,7 +12,6 @@
       --dark:#2b2a28;
       --muted:#7e7a72;
       --glass: rgba(255,255,255,0.95);
-      --buy-btn-color: #558B2F; 
     }
     *{box-sizing:border-box}
     body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Cairo', sans-serif;margin:0;background:#f6f2ed;color:var(--dark);line-height:1.45}
@@ -39,6 +38,7 @@
     .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
     .btn.ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,0.4)}
 
+    /* تنسيق قائمة المنتجات */
     .product-list {
       display: flex;
       flex-direction: column;
@@ -53,18 +53,12 @@
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.08);
       background: #FFFFFF;
-      transition: all 0.2s ease;
-    }
-    .product-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
     .product-img {
       width: 80px;
       height: 80px;
       border-radius: 8px;
       object-fit: cover;
-      background: #f0f0f0;
     }
     .product-info {
       flex-grow: 1;
@@ -73,14 +67,12 @@
       align-items: center;
     }
     .product-name { font-weight: 700; color: var(--dark); font-size: 1.1rem; }
-    
     .price { 
       background-color: #f1efe9; 
       color: var(--accent);      
       padding: 6px 16px;         
       border-radius: 8px;        
       font-weight: 700; 
-      font-size: 1rem;
       border: 1px solid rgba(0,0,0,0.05);
     }
 
@@ -90,7 +82,7 @@
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .muted{color:var(--muted); font-size: 0.95rem;}
 
-    footer{padding:40px 20px; background:#f1efe9; color:var(--muted); text-align: center;}
+    footer{padding:40px 20px; background:#f1efe9; text-align: center;}
 
     @media (max-width:900px){
       .hero-grid, .grid-3, .grid-2 {grid-template-columns:1fr}
@@ -149,16 +141,13 @@
           <strong>Workshops</strong>
           <img src="./images/WORKSHOPS.jpeg" style="width:100%; height:150px; border-radius:8px; margin-top:10px; object-fit:cover;">
         </div>
-        
         <div class="card">
           <strong>Night Projection</strong>
           <img src="./images/NIGHT PROJECTION.jpeg" style="width:100%; height:150px; border-radius:8px; margin-top:10px; object-fit:cover;">
         </div>
-
         <div class="card">
           <strong>Soundscape Alley</strong>
           <p class="muted" style="margin-top:10px; margin-bottom:15px;">Immersive history through soundscapes.</p>
-          
           <audio controls style="width:100%;">
             <source src="./images/script.mpeg" type="audio/mpeg">
             Your browser does not support the audio element.
@@ -171,8 +160,7 @@
       <h2>Souvenirs & Economic Activation</h2>
       <div class="card">
         <strong>On-site Products</strong>
-        <p class="muted">Handcrafted items available for purchase at our marketplace.</p>
-        
+        <p class="muted">Handcrafted items available for purchase.</p>
         <div class="product-list">
           <div class="product-item">
             <img src="./images/Mini Mashrabiyas .jpeg" alt="Mashrabiya" class="product-img">
@@ -181,7 +169,6 @@
               <span class="price">500 EGP</span>
             </div>
           </div>
-
           <div class="product-item">
             <img src="./images/Patterned Fabrics.jpeg" alt="Fabrics" class="product-img">
             <div class="product-info">
@@ -189,7 +176,6 @@
               <span class="price">1000 EGP</span>
             </div>
           </div>
-
           <div class="product-item">
             <img src="./images/Handmade Candles" alt="Candles" class="product-img">
             <div class="product-info">
